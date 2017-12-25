@@ -1,0 +1,5 @@
+# Run common build commands to ensure standard operation with plugin
+> clean
+> compile
+> test
+> dependencyTree
