@@ -11,20 +11,6 @@ sbtPlugin := true
 
 resolvers += Resolver.sonatypeRepo("releases")
 
-// choose a test framework
-
-// utest
-//libraryDependencies += "com.lihaoyi" %% "utest" % "0.4.8" % "test"
-//testFrameworks += new TestFramework("utest.runner.Framework")
-
-// ScalaTest
-//libraryDependencies += "org.scalactic" %% "scalactic" % "3.0.1" % "test"
-//libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.1" % "test"
-
-// Specs2
-//libraryDependencies ++= Seq("org.specs2" %% "specs2-core" % "3.9.1" % "test")
-//scalacOptions in Test ++= Seq("-Yrangepos")
-
 initialCommands in console := """import uk.gov.ons.sbt._"""
 
 // set up 'scripted; sbt plugin for testing sbt plugins
