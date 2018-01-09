@@ -1,6 +1,6 @@
 
 organization := "uk.gov.ons"
-name := """sbt-defaults"""
+name := """sbt-scala-defaults"""
 version := "0.1-SNAPSHOT"
 
 // SBT 0.13 requires 2.10
