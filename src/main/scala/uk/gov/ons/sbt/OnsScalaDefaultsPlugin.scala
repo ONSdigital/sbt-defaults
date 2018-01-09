@@ -9,7 +9,7 @@ import sbtbuildinfo.{BuildInfoKey, BuildInfoOption}
 import sbtrelease.ReleasePlugin.autoImport.{releaseCommitMessage, releaseIgnoreUntrackedFiles, releaseTagComment}
 import com.typesafe.sbt.SbtGit.git
 
-object OnsDefaultsPlugin extends AutoPlugin {
+object OnsScalaDefaultsPlugin extends AutoPlugin {
 
   override def trigger = allRequirements
   override def requires = JvmPlugin
