@@ -6,8 +6,6 @@ import sbtbuildinfo.BuildInfoPlugin.autoImport.{buildInfoKeys, buildInfoOptions}
 import sbtbuildinfo.{BuildInfoKey, BuildInfoOption, BuildInfoPlugin}
 import com.typesafe.sbt.SbtGit.git
 
-import uk.gov.ons.sbt.OnsScalaDefaultsPlugin.constant
-
 object OnsBuildInfoDefaultsPlugin extends AutoPlugin {
 
   override def trigger = allRequirements
@@ -38,5 +36,12 @@ object OnsBuildInfoDefaultsPlugin extends AutoPlugin {
     buildInfoOptions += BuildInfoOption.ToJson,
     buildInfoOptions += BuildInfoOption.BuildTime
   )
+
+  private[this] lazy val constant = new {
+    val projectStage = "alpha"
+    val team = "sbr"
+    val local = "mac"
+    val repoName = "admin-data"
+  }
 
 }

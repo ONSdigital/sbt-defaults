@@ -25,13 +25,6 @@ object OnsScalaDefaultsPlugin extends AutoPlugin {
     )
   }
 
-  private[this] lazy val constant = new {
-    val projectStage = "alpha"
-    val team = "sbr"
-    val local = "mac"
-    val repoName = "admin-data"
-  }
-
   private[this] lazy val organizationSettings = Seq(
     organization := "uk.gov.ons",
     organizationName := "ons",
