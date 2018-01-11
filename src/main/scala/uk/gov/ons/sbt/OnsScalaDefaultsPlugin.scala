@@ -4,10 +4,7 @@ import sbt.Keys.{logLevel, scalacOptions, _}
 import sbt._
 import sbt.plugins.JvmPlugin
 import sbtassembly.AssemblyPlugin.autoImport.assembly
-import sbtbuildinfo.BuildInfoPlugin.autoImport.{buildInfoKeys, buildInfoOptions, buildInfoPackage}
-import sbtbuildinfo.{BuildInfoKey, BuildInfoOption}
 import sbtrelease.ReleasePlugin.autoImport.{releaseCommitMessage, releaseIgnoreUntrackedFiles, releaseTagComment}
-import com.typesafe.sbt.SbtGit.git
 
 object OnsScalaDefaultsPlugin extends AutoPlugin {
 
@@ -28,38 +25,12 @@ object OnsScalaDefaultsPlugin extends AutoPlugin {
     )
   }
 
-  lazy val Constant = new {
+  private[this] lazy val constant = new {
     val projectStage = "alpha"
     val team = "sbr"
     val local = "mac"
     val repoName = "admin-data"
   }
-
-  lazy val buildInfoSettings = Seq(
-    // gives us last compile time and tagging info
-    buildInfoKeys := Seq[BuildInfoKey](
-      organizationName,
-      moduleName,
-      name,
-      description,
-      developers,
-      version,
-      scalaVersion,
-      sbtVersion,
-      startYear,
-      homepage,
-      BuildInfoKey.action("gitVersion") {
-        git.formattedShaVersion.?.value.getOrElse(Some("Unknown")).getOrElse("Unknown") +"@"+ git.formattedDateVersion.?.value.getOrElse("")
-      },
-      BuildInfoKey.action("codeLicenses"){ licenses.value },
-      BuildInfoKey.action("projectTeam"){ Constant.team },
-      BuildInfoKey.action("projectStage"){ Constant.projectStage },
-      BuildInfoKey.action("repositoryAddress"){ Some(scmInfo.value.get.browseUrl).getOrElse("REPO_ADDRESS_NOT_FOUND")}
-    ),
-    buildInfoOptions += BuildInfoOption.ToMap,
-    buildInfoOptions += BuildInfoOption.ToJson,
-    buildInfoOptions += BuildInfoOption.BuildTime
-  )
 
   private[this] lazy val organizationSettings = Seq(
     organization := "uk.gov.ons",
