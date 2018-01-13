@@ -76,7 +76,8 @@ object OnsScalaDefaultsPlugin extends AutoPlugin {
     crossPaths := false,
     parallelExecution := false,
     // Java heap memory memory allocation - lots of deps
-    javaOptions += "-Xmx2G"
+    javaOptions += "-Xmx2G",
+    exportJars := true
   )
 
   private[this] lazy val testSettings = Seq(
